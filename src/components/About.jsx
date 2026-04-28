@@ -59,11 +59,10 @@ export default function About() {
             
             <div className="font-sans text-lg md:text-xl text-white/80 leading-relaxed space-y-6 max-w-2xl">
               <p>
-                I'm a Wichita-based automation consultant helping local small businesses reclaim their time. I specialize in setting up simple, affordable automations using tools like Zapier, HubSpot, and Calendly — so you can focus on running your business, not chasing follow-ups.
+                I'm a Wichita-based automation consultant helping local small businesses reclaim their time. I specialize in setting up simple, affordable automations using tools like Zapier, HubSpot, and Calendly, and more — so you can focus on running your business, not chasing follow-ups.
               </p>
               <p>
-                I work with restaurants, service businesses, contractors, and anyone who's tired of doing the same repetitive tasks every single day. If you're in Wichita, we can meet in person. If you're not, I work remotely too.
-              </p>
+                I work with any service-based business that runs on appointments, follow-ups, and repeat customers — contractors, clinics, salons, gyms, law offices, and more. If you're tired of doing the same repetitive tasks every single day, this is for you.              </p>
             </div>
 
             {/* Tags Row */}

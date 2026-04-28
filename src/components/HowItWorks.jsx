@@ -44,7 +44,7 @@ export default function HowItWorks() {
           scrollTrigger: {
             trigger: card,
             start: "top top",
-            end: "bottom center",
+            end: "bottom top",
             scrub: true,
           },
           scale: 0.9,

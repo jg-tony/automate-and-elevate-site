@@ -46,6 +46,7 @@ const plans = [
       "Lead capture + follow-up",
       "Website contact form automation",
       "AI chatbot for your website",
+      "Website available as separate add-on",
       "60-day support included"
     ],
     cta: "Book Free Audit",
@@ -56,13 +57,13 @@ const plans = [
     title: "Monthly Retainer",
     price: "$300–$600/mo",
     badge: "Ongoing Partnership",
-    features: [
-      "Ongoing automation support",
-      "Monthly new automation added",
-      "Performance check-ins",
-      "Priority response",
-      "Cancel anytime"
-    ],
+   features: [
+  "1–2 new automations added monthly",
+  "Ongoing support & troubleshooting",
+  "Monthly performance check-in call",
+  "Priority response within 24 hours",
+  "Cancel anytime — no contracts"
+],
     cta: "Let's Talk",
     href: "#contact",
     featured: false
@@ -153,14 +154,14 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-24 text-center">
           <p className="font-sans text-text-secondary">
             Not sure which plan? Start with the free audit — it's 20 minutes and completely free.
           </p>
         </div>
 
         {/* Website & Chatbot Add-Ons Box */}
-        <div className="max-w-4xl mx-auto mt-16 bg-[#F8FAFC] rounded-2xl border-l-4 border-l-accent p-8 md:p-12 shadow-sm">
+        <div className="max-w-4xl mx-auto mt-16 bg-[#F8FAFC] rounded-2xl border-2 border-accent p-8 md:p-12 shadow-sm">
           <h3 className="text-2xl font-bold font-sans text-text-main mb-8">Also need a website or chatbot?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
