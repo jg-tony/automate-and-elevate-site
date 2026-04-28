@@ -17,8 +17,7 @@ export default function CursorProtocolScheduler() {
 
       // Cursor enters and moves to Thursday (index 4)
       tl.to('.animated-cursor', { opacity: 1, duration: 0.3 })
-        .to('.animated-cursor', { x: 120, y: 35, duration: 1, ease: 'power2.inOut' })
-        
+        .to('.animated-cursor', { x: 200, y: 35, duration: 1, ease: 'power2.inOut' })        
         // Click on Thursday
         .to('.animated-cursor', { scale: 0.8, duration: 0.1 }) // press
         .to('.day-target', { backgroundColor: '#1A56DB', color: '#FFFFFF', duration: 0.1 }, '<')
@@ -28,7 +27,7 @@ export default function CursorProtocolScheduler() {
         .to({}, { duration: 0.3 })
         
         // Move to Request Review button
-        .to('.animated-cursor', { x: 90, y: 100, duration: 0.8, ease: 'power2.inOut' })
+        .to('.animated-cursor', { x: 130, y: 100, duration: 0.8, ease: 'power2.inOut' })
         
         // Click button
         .to('.animated-cursor', { scale: 0.8, duration: 0.1 })
