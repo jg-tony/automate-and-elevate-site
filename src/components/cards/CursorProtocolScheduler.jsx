@@ -17,7 +17,7 @@ export default function CursorProtocolScheduler() {
 
       // Cursor enters and moves to Thursday (index 4)
       tl.to('.animated-cursor', { opacity: 1, duration: 0.3 })
-        .to('.animated-cursor', { x: 120, y: 35, duration: 1, ease: 'power2.inOut' });
+        .to('.animated-cursor', { x: 120, y: 35, duration: 1, ease: 'power2.inOut' })
         
         // Click on Thursday
         .to('.animated-cursor', { scale: 0.8, duration: 0.1 }) // press
