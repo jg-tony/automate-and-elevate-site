@@ -40,18 +40,20 @@ export default function HowItWorks() {
       cards.forEach((card, i) => {
         if (i === cards.length - 1) return; // Don't animate the last card away
         
-        gsap.to(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-          scale: 0.9,
-          filter: "blur(8px)",
-          opacity: 0.6,
-          ease: "none"
-        });
+        if (window.innerWidth >= 768) {
+  gsap.to(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+    scale: 0.9,
+    filter: "blur(8px)",
+    opacity: 0.6,
+    ease: "none"
+  });
+}
       });
     }, containerRef);
     return () => ctx.revert();
