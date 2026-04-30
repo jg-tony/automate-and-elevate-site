@@ -11,6 +11,8 @@ import Booking from './components/Booking';
 import ContactForm from './components/ContactForm';
 import ComingSoonBanner from './components/ComingSoonBanner';
 import Footer from './components/Footer';
+import CaseStudy from './components/CaseStudy';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Services />
         <Philosophy />
         <HowItWorks />
+        <CaseStudy />
         <Pricing />
         <About />
         <Booking />
