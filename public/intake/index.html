@@ -794,7 +794,7 @@
           headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
-          document.getElementById('formContainer').innerHTML = '';
+          document.getElementById('intakeForm').style.display = 'none';
           document.getElementById('successState').style.display = 'block';
           document.getElementById('progressFill').style.width = '100%';
           document.getElementById('progressPct').textContent = '100%';
