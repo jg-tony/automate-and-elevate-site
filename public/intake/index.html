@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Intake Form — Automate and Elevate</title>
+  <meta name="description" content="Fill out this quick form before your free 20-minute audit with Automate and Elevate. Wichita, KS small business automation consulting.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://automateandelevatebiz.com/intake/">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-section: #F7FAFC;
+      --navy: #1E3A5F;
+      --blue: #1A56DB;
+      --blue-hover: #1440B3;
+      --text: #1E3A5F;
+      --text-secondary: #4A5568;
+      --muted: #A0AEC0;
+      --border: #E2E8F0;
+      --shadow: 0 4px 24px rgba(26,86,219,0.08);
+      --shadow-hover: 0 8px 32px rgba(26,86,219,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-section);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--navy);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .header-tagline {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* HERO BANNER */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5a8e 100%);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 60% 40%, rgba(26,86,219,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: #4d8ef5; }
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* PROGRESS BAR */
+    .progress-wrap {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .progress-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .progress-bar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 100px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+    .progress-pct {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--blue);
+      font-weight: 500;
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* FORM CONTAINER */
+    .form-container {
+      max-width: 760px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    /* SECTION CARDS */
+    .form-section {
+      background: var(--bg);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 36px;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .form-section:nth-child(1) { animation-delay: 0.1s; }
+    .form-section:nth-child(2) { animation-delay: 0.2s; }
+    .form-section:nth-child(3) { animation-delay: 0.3s; }
+    .form-section:nth-child(4) { animation-delay: 0.4s; }
+    .form-section:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
+    }
+
+    /* FORM FIELDS */
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .field-group.single { grid-template-columns: 1fr; }
+    @media (max-width: 600px) { .field-group { grid-template-columns: 1fr; } }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .field label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .field label .req { color: var(--blue); margin-left: 2px; }
+    .field label .opt {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26,86,219,0.1);
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231A56DB' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    /* CHECKBOXES */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .check-item:hover { border-color: var(--blue); background: rgba(26,86,219,0.03); }
+    .check-item.checked { border-color: var(--blue); background: rgba(26,86,219,0.06); }
+    .check-item input { display: none; }
+    .check-box {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .check-item.checked .check-box { background: var(--blue); border-color: var(--blue); }
+    .check-box svg { display: none; }
+    .check-item.checked .check-box svg { display: block; }
+    .check-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+
+    /* RADIO */
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .radio-item:hover { border-color: var(--blue); background: rgba(26,86,219,0.03); }
+    .radio-item.selected { border-color: var(--blue); background: rgba(26,86,219,0.06); }
+    .radio-item input { display: none; }
+    .radio-dot {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .radio-item.selected .radio-dot { border-color: var(--blue); }
+    .radio-dot-inner {
+      width: 8px; height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: none;
+    }
+    .radio-item.selected .radio-dot-inner { display: block; }
+    .radio-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+
+    /* CHAR COUNT */
+    .pain-point-wrap { position: relative; }
+    .char-count {
+      position: absolute;
+      bottom: 10px; right: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    /* SUBMIT */
+    .submit-wrap {
+      background: var(--bg);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 36px;
+      text-align: center;
+      animation: fadeUp 0.5s ease 0.6s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .submit-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .submit-note strong { color: var(--navy); }
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      letter-spacing: -0.01em;
+    }
+    .btn-submit:hover {
+      background: var(--blue-hover);
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(26,86,219,0.3);
+    }
+    .btn-submit:active { transform: scale(0.98); }
+    .btn-submit svg { transition: transform 0.2s; }
+    .btn-submit:hover svg { transform: translateX(3px); }
+
+    /* SUCCESS */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--bg);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      max-width: 760px;
+      margin: 48px auto;
+    }
+    .success-icon {
+      width: 72px; height: 72px;
+      background: rgba(26,86,219,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .success-state h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .success-state p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 24px;
+    }
+    .success-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--blue);
+      background: rgba(26,86,219,0.1);
+      padding: 6px 14px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .field-help {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: -2px;
+      line-height: 1.5;
+    }
+
+    .hp { display: none !important; }
+
+    .form-footer {
+      text-align: center;
+      padding: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="https://automateandelevatebiz.com" class="header-logo">Automate &amp; Elevate</a>
+    <div class="header-tagline">Client Intake Form</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Before Your Free Audit</div>
+    <h1>Tell me about<br><span>your business</span></h1>
+    <p>Takes about 3 minutes. Your answers help me prepare so we make the most of our 20 minutes together.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <span class="progress-label">Progress</span>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+
+  <div class="form-container" id="formContainer">
+    <form id="intakeForm" action="https://formspree.io/f/mbdqvowa" method="POST">
+
+      <input type="text" name="_gotcha" class="hp">
+      <input type="hidden" name="form_type" value="client_intake">
+
+      <!-- 01 BUSINESS BASICS -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-title">Business Basics</div>
+            <div class="section-subtitle">Tell me who you are</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label>Business Name <span class="req">*</span></label>
+            <input type="text" name="business_name" placeholder="Jane's Bakery" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="jane@yourbusiness.com" required>
+          </div>
+          <div class="field">
+            <label>Phone Number <span class="opt">(optional)</span></label>
+            <input type="tel" name="phone" placeholder="(316) 555-0100">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>Business Type <span class="req">*</span></label>
+            <select name="business_type" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>Restaurant / Food &amp; Beverage</option>
+              <option>Health &amp; Wellness / Spa</option>
+              <option>Home Services / Contractor</option>
+              <option>Retail / E-commerce</option>
+              <option>Professional Services</option>
+              <option>Real Estate</option>
+              <option>Fitness / Personal Training</option>
+              <option>Beauty / Salon</option>
+              <option>Healthcare / Medical</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Website URL <span class="opt">(if you have one)</span></label>
+            <input type="url" name="website" placeholder="https://yourbusiness.com">
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>How many clients/customers do you serve per week? <span class="req">*</span></label>
+            <select name="clients_per_week" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>1–5</option>
+              <option>6–15</option>
+              <option>16–30</option>
+              <option>30–50</option>
+              <option>50+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 TOOLS -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-title">Tools You Currently Use</div>
+            <div class="section-subtitle">Check all that apply — none is fine too</div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>Email Provider <span class="req">*</span></label>
+          <div class="radio-grid">
+            <div class="radio-item" onclick="selectRadio(this,'email_provider','Gmail')"><input type="radio" name="email_provider" value="Gmail"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Gmail</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'email_provider','Outlook')"><input type="radio" name="email_provider" value="Outlook"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Outlook</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'email_provider','Yahoo')"><input type="radio" name="email_provider" value="Yahoo"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Yahoo</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'email_provider','Custom domain email')"><input type="radio" name="email_provider" value="Custom domain email"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Custom domain</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'email_provider','Not sure')"><input type="radio" name="email_provider" value="Not sure"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Not sure</span></div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>Business Tools <span class="opt">(select all that apply)</span></label>
+          <div class="check-grid">
+            <div class="check-item" onclick="toggleCheck(this,'tools','HubSpot')"><input type="checkbox" name="tools" value="HubSpot"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">HubSpot</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Zapier')"><input type="checkbox" name="tools" value="Zapier"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Zapier</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Calendly')"><input type="checkbox" name="tools" value="Calendly"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Calendly</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Mailchimp')"><input type="checkbox" name="tools" value="Mailchimp"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Mailchimp</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Quickbooks')"><input type="checkbox" name="tools" value="Quickbooks"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Quickbooks</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Google Workspace')"><input type="checkbox" name="tools" value="Google Workspace"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Google Workspace</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','Square / Toast POS')"><input type="checkbox" name="tools" value="Square / Toast POS"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Square / Toast POS</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'tools','None yet')"><input type="checkbox" name="tools" value="None yet"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">None yet</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>How do clients currently book or contact you? <span class="req">*</span></label>
+          <div class="check-grid">
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','Phone / text')"><input type="checkbox" name="booking_method" value="Phone / text"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Phone / text</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','Email')"><input type="checkbox" name="booking_method" value="Email"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Email</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','Website form')"><input type="checkbox" name="booking_method" value="Website form"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Website form</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','Social media DM')"><input type="checkbox" name="booking_method" value="Social media DM"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Social media DM</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','Walk-in only')"><input type="checkbox" name="booking_method" value="Walk-in only"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Walk-in only</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'booking_method','No system yet')"><input type="checkbox" name="booking_method" value="No system yet"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">No system yet</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 PAIN POINTS -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-title">Your Biggest Pain Points</div>
+            <div class="section-subtitle">This is the most important section</div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>What tasks feel repetitive or time-wasting every week? <span class="req">*</span></label>
+          <div class="check-grid">
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Sending appointment reminders')"><input type="checkbox" name="pain_points" value="Sending appointment reminders"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Appointment reminders</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Following up with leads')"><input type="checkbox" name="pain_points" value="Following up with leads"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Following up with leads</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Requesting Google reviews')"><input type="checkbox" name="pain_points" value="Requesting Google reviews"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Requesting Google reviews</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Answering the same questions')"><input type="checkbox" name="pain_points" value="Answering the same questions"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Answering the same FAQs</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Scheduling / rescheduling')"><input type="checkbox" name="pain_points" value="Scheduling / rescheduling"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Scheduling / rescheduling</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Tracking clients / contacts')"><input type="checkbox" name="pain_points" value="Tracking clients / contacts"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Tracking clients / contacts</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Sending invoices')"><input type="checkbox" name="pain_points" value="Sending invoices"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Sending invoices</span></div>
+            <div class="check-item" onclick="toggleCheck(this,'pain_points','Social media posting')"><input type="checkbox" name="pain_points" value="Social media posting"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="check-label">Social media posting</span></div>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Describe your biggest frustration in your own words <span class="req">*</span></label>
+            <div class="pain-point-wrap">
+              <textarea name="biggest_frustration" id="frustrationText" placeholder="e.g. I spend an hour every morning texting clients appointment reminders…" required maxlength="500" oninput="updateCharCount(this,'frustrationCount',500)"></textarea>
+              <span class="char-count"><span id="frustrationCount">0</span>/500</span>
+            </div>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>What would saving 5 hours a week mean for your business?</label>
+            <textarea name="time_saved_impact" placeholder="e.g. I could finally focus on getting new clients instead of chasing existing ones…" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 GOALS & BUDGET -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-title">Goals &amp; Budget</div>
+            <div class="section-subtitle">Helps me recommend the right package</div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>What's your primary goal? <span class="req">*</span></label>
+          <div class="radio-grid">
+            <div class="radio-item" onclick="selectRadio(this,'primary_goal','Save time on admin')"><input type="radio" name="primary_goal" value="Save time on admin"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Save time on admin</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'primary_goal','Get more leads')"><input type="radio" name="primary_goal" value="Get more leads"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Get more leads</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'primary_goal','Reduce no-shows')"><input type="radio" name="primary_goal" value="Reduce no-shows"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Reduce no-shows</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'primary_goal','Get more Google reviews')"><input type="radio" name="primary_goal" value="Get more Google reviews"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">More Google reviews</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'primary_goal','All of the above')"><input type="radio" name="primary_goal" value="All of the above"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">All of the above</span></div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>Monthly budget for automation tools <span class="req">*</span></label>
+          <p class="field-help">These are the tools I'd set up for you (Zapier, HubSpot, etc.) — not my fee</p>
+          <div class="radio-grid" style="margin-top:10px;">
+            <div class="radio-item" onclick="selectRadio(this,'tool_budget','$0 — free tools only')"><input type="radio" name="tool_budget" value="$0 — free tools only"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">$0 — free only</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tool_budget','$20–50/mo')"><input type="radio" name="tool_budget" value="$20–50/mo"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">$20–50/mo</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tool_budget','$50–100/mo')"><input type="radio" name="tool_budget" value="$50–100/mo"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">$50–100/mo</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tool_budget','$100+/mo')"><input type="radio" name="tool_budget" value="$100+/mo"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">$100+/mo</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>How comfortable are you with technology? <span class="req">*</span></label>
+          <div class="radio-grid">
+            <div class="radio-item" onclick="selectRadio(this,'tech_comfort','Not at all — I need everything handled')"><input type="radio" name="tech_comfort" value="Not at all — I need everything handled"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Not at all</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tech_comfort','Somewhat — I can follow instructions')"><input type="radio" name="tech_comfort" value="Somewhat — I can follow instructions"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Somewhat</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tech_comfort','Comfortable — I just need setup help')"><input type="radio" name="tech_comfort" value="Comfortable — I just need setup help"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Comfortable</span></div>
+            <div class="radio-item" onclick="selectRadio(this,'tech_comfort','Very comfortable')"><input type="radio" name="tech_comfort" value="Very comfortable"><div class="radio-dot"><div class="radio-dot-inner"></div></div><span class="radio-label">Very comfortable</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 ANYTHING ELSE -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-title">Anything Else?</div>
+            <div class="section-subtitle">Optional but helpful</div>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>How did you hear about Automate &amp; Elevate?</label>
+            <select name="referral_source">
+              <option value="" disabled selected>Select one</option>
+              <option>Google Search</option>
+              <option>LinkedIn</option>
+              <option>Facebook / Instagram</option>
+              <option>Word of mouth / referral</option>
+              <option>Local event / networking</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group single">
+          <div class="field">
+            <label>Anything else you want me to know before our call?</label>
+            <textarea name="additional_notes" placeholder="Any context, questions, or concerns you want to bring up…" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-wrap">
+        <p class="submit-note">
+          <strong>You're almost done.</strong> After submitting, Tony will review your answers and reach out within 24 hours to confirm your audit time.
+        </p>
+        <button type="submit" class="btn-submit">
+          Submit &amp; Book My Audit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </form>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M6 16l7 7 13-13" stroke="#1A56DB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>You're all set!</h2>
+      <p>Tony will review your answers and be in touch within 24 hours to confirm your free audit. Check your email for a confirmation.</p>
+      <span class="success-tag">Response within 24 hours</span>
+    </div>
+  </div>
+
+  <div class="form-footer">© 2026 Automate and Elevate LLC · Wichita, KS · tony@automateandelevatebiz.com</div>
+
+  <script>
+    function toggleCheck(el, name, value) {
+      el.classList.toggle('checked');
+      el.querySelector('input').checked = !el.querySelector('input').checked;
+      updateProgress();
+    }
+    function selectRadio(el, name, value) {
+      el.parentElement.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected');
+      el.querySelector('input').checked = true;
+      updateProgress();
+    }
+    function updateCharCount(el, countId, max) {
+      document.getElementById(countId).textContent = el.value.length;
+      updateProgress();
+    }
+    function updateProgress() {
+      let filled = 0, total = 0;
+      document.querySelectorAll('input[required], select[required], textarea[required]').forEach(el => {
+        total++;
+        if (el.tagName === 'SELECT' ? el.value && el.value.trim() !== '' : el.value.trim() !== '') filled++;
+      });
+      [...new Set([...document.querySelectorAll('input[type=radio][name]')].map(r => r.name))].forEach(name => {
+        total++;
+        if (document.querySelector(`input[type=radio][name="${name}"]:checked`)) filled++;
+      });
+      [...new Set([...document.querySelectorAll('input[type=checkbox][name]')].map(c => c.name))].forEach(name => {
+        total++;
+        if (document.querySelector(`input[type=checkbox][name="${name}"]:checked`)) filled++;
+      });
+      document.querySelectorAll('textarea:not([required])').forEach(el => {
+        total++;
+        if (el.value.trim() !== '') filled++;
+      });
+      const pct = total === 0 ? 0 : Math.round((filled / total) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressPct').textContent = pct + '%';
+    }
+    document.getElementById('intakeForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('formContainer').innerHTML = '';
+          document.getElementById('successState').style.display = 'block';
+          document.getElementById('progressFill').style.width = '100%';
+          document.getElementById('progressPct').textContent = '100%';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          btn.textContent = 'Something went wrong — please email tony@automateandelevatebiz.com';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Error — please email tony@automateandelevatebiz.com';
+        btn.disabled = false;
+      }
+    });
+    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=url], select, textarea').forEach(el => {
+      el.addEventListener('input', updateProgress);
+      el.addEventListener('change', updateProgress);
+    });
+    updateProgress();
+  </script>
+
+</body>
+</html>
